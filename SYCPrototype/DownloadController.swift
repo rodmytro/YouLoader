@@ -11,17 +11,17 @@ class DownloadController {
     private var downloads = [DownloadItem]()
 
     var count: (Int) {
-        get{
+        get {
             return downloads.count
         }
     }
-    
+
     subscript(index: Int) -> DownloadItem {
         get {
             return downloads[index]
         }
     }
-    
+
     func startDownloading(identifier: String) {
         XCDYouTubeClient.default().getVideoWithIdentifier(identifier) {
             (video: XCDYouTubeVideo?, error: Error?) in

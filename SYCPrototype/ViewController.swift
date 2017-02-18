@@ -11,7 +11,7 @@ class ViewController: NSViewController, NSWindowDelegate {
     @IBOutlet weak var urlTextField: NSTextField!
 
     let downloadController = DownloadController()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +24,7 @@ class ViewController: NSViewController, NSWindowDelegate {
             // Update the view, if already loaded.
         }
     }
-    
+
     func windowShouldClose(_ sender: Any) {
         //NSApplication.shared().terminate(self)
         //TODO
@@ -32,28 +32,22 @@ class ViewController: NSViewController, NSWindowDelegate {
     }
 
     private func configureCollectionView() {
-        // 1
         let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.itemSize = NSSize(width: 170.0, height: 60.0)
         flowLayout.sectionInset = EdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         flowLayout.minimumInteritemSpacing = 20.0
         flowLayout.minimumLineSpacing = 10.0
         collectionView.collectionViewLayout = flowLayout
-        // 2
         view.wantsLayer = true
-        // 3
-//        collectionView.layer?.backgroundColor = NSColor.black.cgColor
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            
-            let helloWorldTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector("loadDownloads"), userInfo: nil, repeats: true)
-            
+            let helloWorldTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector("updateCollectionView"), userInfo: nil, repeats: true)
             helloWorldTimer.fire()
         }
 
     }
 
-    func loadDownloads() {
+    func updateCollectionView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.collectionView.reloadData()
         }
@@ -62,7 +56,7 @@ class ViewController: NSViewController, NSWindowDelegate {
     @IBAction func onDownloadClick(_ sender: AnyObject) {
         if !urlTextField.stringValue.isEmpty {
             downloadController.startDownloading(identifier: urlTextField.stringValue)
-            loadDownloads()
+            updateCollectionView()
         }
     }
 }
@@ -97,11 +91,11 @@ extension ViewController: NSCollectionViewDataSource {
 
         return item
     }
-    
+
     @objc(takesAIntArgument:)
     func onClick(sender: NSButton) {
         print("onclick = \(sender.tag)")
-        
+
         if downloadController[sender.tag].state == .IN_PROGRESS {
             downloadController[sender.tag].pause()
         } else {
