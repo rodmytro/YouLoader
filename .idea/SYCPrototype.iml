@@ -6,14 +6,14 @@
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototypeTests/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/DownloadItem.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/AppDelegate.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/DownloadController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/Double.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/CollectionViewItem.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/ViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/Assets.xcassets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/SYCPrototype-Bridging-Header.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/DownloadController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/ViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/CollectionViewItem.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/app/AppDelegate.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/Base.lproj/Main.storyboard" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/CollectionViewItem.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Timeline.swift" isTestSource="false" />

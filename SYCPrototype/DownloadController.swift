@@ -6,7 +6,7 @@ import Foundation
 import Alamofire
 import XCDYouTubeKit
 
-class DownloadController {
+class DownloadController: Sequence {
 
     private var downloads = [DownloadItem]()
 
@@ -22,6 +22,10 @@ class DownloadController {
         }
     }
 
+    func makeIterator() -> IndexingIterator<[DownloadItem]> {
+        return downloads.makeIterator()
+    }
+
     func startDownloading(identifier: String) {
         XCDYouTubeClient.default().getVideoWithIdentifier(identifier) {
             (video: XCDYouTubeVideo?, error: Error?) in
@@ -30,6 +34,12 @@ class DownloadController {
                 item.start()
                 self.downloads.append(item)
             }
+        }
+    }
+
+    deinit {
+        for item in downloads {
+            item.pause()
         }
     }
 

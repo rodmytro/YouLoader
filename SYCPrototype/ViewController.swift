@@ -11,6 +11,7 @@ class ViewController: NSViewController, NSWindowDelegate {
     @IBOutlet weak var urlTextField: NSTextField!
 
     let downloadController = DownloadController()
+    var updateTimer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,16 +20,12 @@ class ViewController: NSViewController, NSWindowDelegate {
         self.view.window?.delegate = self
     }
 
-    override var representedObject: Any? {
-        didSet {
-            // Update the view, if already loaded.
+    override func viewWillDisappear() {
+        for item in downloadController {
+            item.pause()
         }
-    }
 
-    func windowShouldClose(_ sender: Any) {
-        //NSApplication.shared().terminate(self)
-        //TODO
-        downloadController[0].pause()
+        self.updateTimer?.invalidate()
     }
 
     private func configureCollectionView() {
@@ -41,8 +38,8 @@ class ViewController: NSViewController, NSWindowDelegate {
         view.wantsLayer = true
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            let helloWorldTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector("updateCollectionView"), userInfo: nil, repeats: true)
-            helloWorldTimer.fire()
+            self.updateTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateCollectionView), userInfo: nil, repeats: true)
+            self.updateTimer?.fire()
         }
 
     }
@@ -63,18 +60,15 @@ class ViewController: NSViewController, NSWindowDelegate {
 
 extension ViewController: NSCollectionViewDataSource {
 
-    // 1
-    func numberOfSectionsInCollectionView(collectionView: NSCollectionView) -> Int {
-        return 2
+    private func numberOfSectionsInCollectionView(collectionView: NSCollectionView) -> Int {
+        return 1
     }
 
-    // 2
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         print("collections \(downloadController.count)")
         return downloadController.count
     }
 
-    // 3
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
 
         let item = collectionView.makeItem(withIdentifier: "CollectionViewItem", for: indexPath as IndexPath)
@@ -101,6 +95,8 @@ extension ViewController: NSCollectionViewDataSource {
         } else {
             downloadController[sender.tag].resume()
         }
+
+        self.updateCollectionView()
     }
 
 }

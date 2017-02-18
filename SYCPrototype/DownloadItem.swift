@@ -25,6 +25,11 @@ class DownloadItem {
     var state: State
     var progress: Double
 
+    //var bytesCompleted: Int64
+    var dataCompleted: Data
+    var retryCounter: Int
+
+
     var request: Alamofire.Request?
 
     init(url: URL, name: String) {
@@ -32,18 +37,26 @@ class DownloadItem {
         self.name = name
         self.progress = 0
 
+        //self.bytesCompleted = 0
+        self.dataCompleted = Data()
+        self.retryCounter = 0
+
         self.state = .IN_PROGRESS
     }
 
     func start() {
-        let manager = Alamofire.SessionManager.default
-        manager.session.configuration.timeoutIntervalForRequest = 600
+        start(parameters: [:])
+    }
 
-        request = manager.request(url)
+    func start(parameters: Parameters) {
+        let manager = Alamofire.SessionManager.default
+        //manager.session.configuration.timeoutIntervalForRequest = 10
+
+        request = manager.request(url, parameters: parameters)
         .downloadProgress(queue: concurrentDownloadQueue) {
             progress in
             self.progress = progress.fractionCompleted
-            print("bytes \(progress.completedUnitCount)")
+            //self.bytesCompleted = progress.completedUnitCount
         }
         .responseData {
             response in
@@ -51,11 +64,13 @@ class DownloadItem {
             switch response.result {
             case .success:
                 self.state = .FINISHED
-                print("SUCCESS size = \([UInt8](response.data!))")
+                print("SUCCESS size = \(response.data?.count)")
             case .failure(let error):
+                self.dataCompleted.append(response.data!)
                 self.state = .FAILED
+
                 print("Code: \(response.response?.statusCode)")
-                print(error)
+                print("Completed: \(self.dataCompleted.count) bytes")
             }
         }
     }
@@ -66,13 +81,22 @@ class DownloadItem {
     }
 
     func resume() {
-        state = .IN_PROGRESS
-        request?.resume()
+        if (state == .PAUSED) {
+            state = .IN_PROGRESS
+            request?.resume()
+        } else if (state == .FAILED) {
+            let parameters: Parameters = ["Bytes": dataCompleted.count]
+            start(parameters: parameters)
+        }
     }
 
     func cancel() {
         state = .FAILED
         request?.cancel()
+    }
+
+    func retry() {
+        retryCounter += 1
     }
 
 }
