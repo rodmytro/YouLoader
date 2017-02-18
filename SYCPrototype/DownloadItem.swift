@@ -5,8 +5,12 @@
 
 import Alamofire
 import Foundation
+import XCDYouTubeKit
 
 class DownloadItem {
+    let MAX_RETRY_ITERATIONS = 5
+    let SECONDS_BETWEEN_RETRY = 5.0
+
     let concurrentDownloadQueue =
     DispatchQueue(
             label: "concurrentDownloadQueue",
@@ -16,47 +20,58 @@ class DownloadItem {
     enum State {
         case IN_PROGRESS
         case PAUSED
+        case RETRY
         case FAILED
         case FINISHED
     }
 
-    var url: URL
-    var name: String
+    var identifier: String
+    var url: URL?
     var state: State
     var progress: Double
 
-    //var bytesCompleted: Int64
     var dataCompleted: Data
     var retryCounter: Int
+    var totalDataSize: Int64
 
 
     var request: Alamofire.Request?
 
-    init(url: URL, name: String) {
-        self.url = url
-        self.name = name
+    init(identifier: String) {
+        self.identifier = identifier
         self.progress = 0
 
-        //self.bytesCompleted = 0
         self.dataCompleted = Data()
         self.retryCounter = 0
+        self.totalDataSize = 0
 
         self.state = .IN_PROGRESS
+
+        initUrl()
     }
 
     func start() {
-        start(parameters: [:])
+        start(headers: [:])
     }
 
-    func start(parameters: Parameters) {
-        let manager = Alamofire.SessionManager.default
-        //manager.session.configuration.timeoutIntervalForRequest = 10
+    func start(headers: HTTPHeaders) {
+        state = .IN_PROGRESS
 
-        request = manager.request(url, parameters: parameters)
+        let manager = Alamofire.SessionManager.default
+        manager.session.configuration.timeoutIntervalForRequest = 10
+
+        request = manager.request(url!, headers: headers)
         .downloadProgress(queue: concurrentDownloadQueue) {
             progress in
+            print("progress \(progress.fractionCompleted)")
+
             self.progress = progress.fractionCompleted
-            //self.bytesCompleted = progress.completedUnitCount
+
+            if self.totalDataSize == 0 {
+                self.totalDataSize = progress.totalUnitCount
+            }
+
+            self.retryCounter = 0
         }
         .responseData {
             response in
@@ -64,13 +79,20 @@ class DownloadItem {
             switch response.result {
             case .success:
                 self.state = .FINISHED
-                print("SUCCESS size = \(response.data?.count)")
-            case .failure(let error):
                 self.dataCompleted.append(response.data!)
-                self.state = .FAILED
+
+                print("SUCCESS total size = \(self.dataCompleted.count)")
+                FileUtils().writeDataToFile(data: self.dataCompleted)
+
+            case .failure(let error):
+                self.state = .RETRY
+                self.dataCompleted.append(response.data!)
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + self.SECONDS_BETWEEN_RETRY) {
+                    self.retry()
+                }
 
                 print("Code: \(response.response?.statusCode)")
-                print("Completed: \(self.dataCompleted.count) bytes")
             }
         }
     }
@@ -81,13 +103,8 @@ class DownloadItem {
     }
 
     func resume() {
-        if (state == .PAUSED) {
-            state = .IN_PROGRESS
-            request?.resume()
-        } else if (state == .FAILED) {
-            let parameters: Parameters = ["Bytes": dataCompleted.count]
-            start(parameters: parameters)
-        }
+        state = .IN_PROGRESS
+        request?.resume()
     }
 
     func cancel() {
@@ -96,7 +113,31 @@ class DownloadItem {
     }
 
     func retry() {
-        retryCounter += 1
+        if retryCounter < MAX_RETRY_ITERATIONS {
+            self.state = .RETRY
+
+            retryCounter += 1
+
+            let bytesRange = "bytes=\(dataCompleted.count)-\(totalDataSize)"
+            let headers: HTTPHeaders = ["Range": bytesRange]
+            print(bytesRange)
+
+            start(headers: headers)
+
+        } else {
+            state = .FAILED
+        }
+    }
+
+    func initUrl() {
+        XCDYouTubeClient.default().getVideoWithIdentifier(identifier) {
+            (video: XCDYouTubeVideo?, error: Error?) in
+            if let video = video {
+                self.url = (video.streamURLs.first?.value)!
+
+                self.start()
+            }
+        }
     }
 
 }

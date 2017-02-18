@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed003646-719f-44f2-85ef-c15ba093e96c" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SYCPrototype/AppDelegate.swift" afterPath="$PROJECT_DIR$/SYCPrototype/app/AppDelegate.swift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SYCPrototype/FileUtils.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SYCPrototype.iml" afterPath="$PROJECT_DIR$/.idea/SYCPrototype.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SYCPrototype.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/SYCPrototype.xcodeproj/project.pbxproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SYCPrototype.xcworkspace/xcuserdata/rodmytro.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterPath="$PROJECT_DIR$/SYCPrototype.xcworkspace/xcuserdata/rodmytro.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SYCPrototype/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/SYCPrototype/Base.lproj/Main.storyboard" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SYCPrototype/Double.swift" afterPath="$PROJECT_DIR$/SYCPrototype/Double.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SYCPrototype/CollectionViewItem.swift" afterPath="$PROJECT_DIR$/SYCPrototype/CollectionViewItem.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SYCPrototype/DownloadController.swift" afterPath="$PROJECT_DIR$/SYCPrototype/DownloadController.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SYCPrototype/DownloadItem.swift" afterPath="$PROJECT_DIR$/SYCPrototype/DownloadItem.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SYCPrototype/SYCPrototype-Bridging-Header.h" afterPath="$PROJECT_DIR$/SYCPrototype/SYCPrototype-Bridging-Header.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SYCPrototype/ViewController.swift" afterPath="$PROJECT_DIR$/SYCPrototype/ViewController.swift" />
     </list>
     <ignored path="SYCPrototype.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,21 +29,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ViewController.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SYCPrototype/ViewController.swift">
+      <file leaf-file-name="DownloadItem.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SYCPrototype/DownloadItem.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1350">
-              <caret line="90" column="40" selection-start-line="90" selection-start-column="40" selection-end-line="90" selection-end-column="40" />
+            <state relative-caret-position="315">
+              <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+              <folding>
+                <element signature="e#45#61#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CollectionViewItem.swift" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SYCPrototype/CollectionViewItem.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DownloadController.swift" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DownloadController.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SYCPrototype/DownloadController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+            <state relative-caret-position="420">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="e#44#61#0" expanded="true" />
               </folding>
@@ -65,11 +74,12 @@
         <option value="$PROJECT_DIR$/SYCPrototype/CollectionViewItem.swift" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/SYCPrototype/Double.swift" />
-        <option value="$PROJECT_DIR$/SYCPrototype/DownloadItem.swift" />
-        <option value="$PROJECT_DIR$/SYCPrototype/DownloadController.swift" />
         <option value="$PROJECT_DIR$/SYCPrototype/ViewController.swift" />
         <option value="$PROJECT_DIR$/SYCPrototype/app/AppDelegate.swift" />
         <option value="$PROJECT_DIR$/SYCPrototype/SYCPrototype-Bridging-Header.h" />
+        <option value="$PROJECT_DIR$/SYCPrototype/FileUtils.swift" />
+        <option value="$PROJECT_DIR$/SYCPrototype/DownloadController.swift" />
+        <option value="$PROJECT_DIR$/SYCPrototype/DownloadItem.swift" />
       </list>
     </option>
   </component>
@@ -141,10 +151,111 @@
               <option name="myItemId" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SYCPrototype" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SYCPrototype" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SYCPrototype" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SYCPrototype" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="items" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SYCPrototype" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SYCPrototype" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="downloader" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SYCPrototype" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SYCPrototype" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="downloader" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SYCPrototype" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SYCPrototype" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="OBJC.PRESERVED_TARGET_SELECTION" value="SYCPrototype" />
   </component>
   <component name="RunManager" selected="Application.SYCPrototype">
     <configuration default="true" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SYCPrototype" TARGET_NAME="SYCPrototype" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="SYCPrototype" RUN_TARGET_NAME="SYCPrototype" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
@@ -198,12 +309,12 @@
       <updated>1487288704767</updated>
       <workItem from="1487288707251" duration="872000" />
       <workItem from="1487317535409" duration="1716000" />
-      <workItem from="1487410523224" duration="2472000" />
+      <workItem from="1487410523224" duration="4266000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5060000" />
+    <option name="totallyTimeSpent" value="6854000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="787" extended-state="6" />
@@ -318,7 +429,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SYCPrototype/Double.swift">
+    <entry file="file://$PROJECT_DIR$/SYCPrototype/SYCPrototype-Bridging-Header.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SYCPrototype/FIleUtils.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SYCPrototype/FIleUtils.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -334,18 +461,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SYCPrototype/CollectionViewItem.swift">
+    <entry file="file://$PROJECT_DIR$/SYCPrototype/Double.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SYCPrototype/DownloadItem.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -358,21 +477,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SYCPrototype/SYCPrototype-Bridging-Header.h">
+    <entry file="file://$PROJECT_DIR$/SYCPrototype/FileUtils.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-          <folding />
+        <state relative-caret-position="135">
+          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+          <folding>
+            <element signature="e#4#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SYCPrototype/DownloadController.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+        <state relative-caret-position="420">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
             <element signature="e#44#61#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SYCPrototype/DownloadItem.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+          <folding>
+            <element signature="e#45#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SYCPrototype/CollectionViewItem.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -41,12 +41,18 @@ class CollectionViewItem: NSCollectionViewItem {
                 itemTitle?.stringValue = "Progress: \(Double(item.progress).toPercents())%"
                 itemActionButton?.title = "Resume"
                 break
+            case .RETRY:
+                itemActionButton.isHidden = true
+                itemTitle?.stringValue = "Retry"
+                break
             case .FINISHED:
                 itemActionButton.isHidden = true
                 itemTitle?.stringValue = "Finished"
+                break
             case .FAILED:
                 itemActionButton.isHidden = true
                 itemTitle?.stringValue = "Failed"
+                break
             }
         }
     }
