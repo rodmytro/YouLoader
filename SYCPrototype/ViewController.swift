@@ -66,7 +66,6 @@ extension ViewController: NSCollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("collections \(downloadController.count)")
         return downloadController.count
     }
 

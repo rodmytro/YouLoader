@@ -21,6 +21,7 @@ class DownloadItem {
     enum State {
         case IN_PROGRESS
         case PAUSED
+        case PAUSE_FAILED
         case RETRY
         case FAILED
         case FINISHED
@@ -34,7 +35,6 @@ class DownloadItem {
     var retryCounter: Int
     var totalDataSize: Int64
 
-
     var request: Alamofire.Request?
 
     init(url: URL) {
@@ -46,7 +46,7 @@ class DownloadItem {
         self.progress = 0
         self.state = .PAUSED
 
-        self.manager.session.configuration.timeoutIntervalForRequest = 15
+        self.manager.session.configuration.timeoutIntervalForRequest = 5
     }
 
     func start() {
@@ -87,12 +87,18 @@ class DownloadItem {
                 FileUtils().writeDataToFile(data: self.dataCompleted)
 
             case .failure(let error):
-                self.state = .RETRY
                 print("Error: \(error)")
 
-                //retrying download after SECONDS_BETWEEN_RETRY
-                DispatchQueue.main.asyncAfter(deadline: .now() + self.SECONDS_BETWEEN_RETRY) {
-                    self.retry()
+                // after long pause - request timed out error, 
+                // so when resume we need to retry download
+                if self.state == .PAUSED {
+                    self.state = .PAUSE_FAILED
+                } else {
+                    self.state = .RETRY
+                    // retrying download after SECONDS_BETWEEN_RETRY
+                    DispatchQueue.main.asyncAfter(deadline: .now() + self.SECONDS_BETWEEN_RETRY) {
+                        self.retry()
+                    }
                 }
             }
         }
@@ -104,8 +110,13 @@ class DownloadItem {
     }
 
     func resume() {
+        if (state == .PAUSE_FAILED) {
+            retry()
+        } else {
+            request?.resume()
+        }
+
         state = .IN_PROGRESS
-        request?.resume()
     }
 
     func cancel() {

@@ -119,11 +119,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SYCPrototype/CollectionViewItem.swift"
-            timestampString = "509119185.381026"
+            timestampString = "509132417.640595"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61">
+            startingLineNumber = "65"
+            endingLineNumber = "65">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -165,11 +165,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SYCPrototype/DownloadItem.swift"
-            timestampString = "509129208.455571"
+            timestampString = "509132417.640595"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "start(headers:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -181,11 +181,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SYCPrototype/DownloadItem.swift"
-            timestampString = "509129208.455571"
+            timestampString = "509132417.640595"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "pause()"
             landmarkType = "7">
          </BreakpointContent>
@@ -277,13 +277,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SYCPrototype/DownloadItem.swift"
-            timestampString = "509129208.455571"
+            timestampString = "509132417.640595"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "retry()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SYCPrototype/DownloadItem.swift"
+            timestampString = "509132417.640595"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "start(headers:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SYCPrototype.DownloadItem.(start (headers : Swift.Dictionary&lt;Swift.String, Swift.String&gt;) -&gt; ()).(closure #2)"
+                  moduleName = "SYCPrototype"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rodmytro/Documents/Work/macosx/SYCPrototype/SYCPrototype/DownloadItem.swift"
+                  timestampString = "509131200.654567"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "1555">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SYCPrototype.DownloadItem.(start (headers : Swift.Dictionary&lt;Swift.String, Swift.String&gt;) -&gt; ()).(closure #2).(closure #1)"
+                  moduleName = "SYCPrototype"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rodmytro/Documents/Work/macosx/SYCPrototype/SYCPrototype/DownloadItem.swift"
+                  timestampString = "509131200.655931"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
