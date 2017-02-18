@@ -15,9 +15,8 @@ class CollectionViewItem: NSCollectionViewItem {
             guard isViewLoaded else {
                 return
             }
-            if let item = item {
-                setInfo()
-            }
+
+            setInfo()
         }
     }
 

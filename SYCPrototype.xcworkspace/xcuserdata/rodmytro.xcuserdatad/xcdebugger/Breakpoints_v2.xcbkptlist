@@ -170,7 +170,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
             endingLineNumber = "101"
-            landmarkName = "pause()"
+            landmarkName = "start(headers:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -186,7 +186,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
             endingLineNumber = "107"
-            landmarkName = "resume()"
+            landmarkName = "pause()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -282,7 +282,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
             endingLineNumber = "53"
-            landmarkName = "start()"
+            landmarkName = "init(identifier:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -298,8 +298,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
             endingLineNumber = "52"
-            landmarkName = "DownloadItem"
-            landmarkType = "3">
+            landmarkName = "init(identifier:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -314,7 +314,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
             endingLineNumber = "134"
-            landmarkName = "initUrl()"
+            landmarkName = "retry()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -37,21 +37,22 @@ class ViewController: NSViewController, NSWindowDelegate {
         collectionView.collectionViewLayout = flowLayout
         view.wantsLayer = true
 
+        // refreshing for showing current progress & state
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.updateTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateCollectionView), userInfo: nil, repeats: true)
             self.updateTimer?.fire()
         }
-
     }
 
     func updateCollectionView() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        //DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.collectionView.reloadData()
-        }
+        //}
     }
 
     @IBAction func onDownloadClick(_ sender: AnyObject) {
         if !urlTextField.stringValue.isEmpty {
+            //starts a new download task with identifier
             downloadController.startDownloading(identifier: urlTextField.stringValue)
             updateCollectionView()
         }
@@ -86,10 +87,12 @@ extension ViewController: NSCollectionViewDataSource {
         return item
     }
 
+    // on item action button click
     @objc(takesAIntArgument:)
     func onClick(sender: NSButton) {
         print("onclick = \(sender.tag)")
 
+        //PAUSE/RESUME
         if downloadController[sender.tag].state == .IN_PROGRESS {
             downloadController[sender.tag].pause()
         } else {

@@ -17,6 +17,8 @@ class DownloadItem {
             qos: .utility,
             attributes: .concurrent)
 
+    let manager = Alamofire.SessionManager.default
+
     enum State {
         case IN_PROGRESS
         case PAUSED
@@ -39,13 +41,14 @@ class DownloadItem {
 
     init(identifier: String) {
         self.identifier = identifier
-        self.progress = 0
-
         self.dataCompleted = Data()
         self.retryCounter = 0
         self.totalDataSize = 0
 
-        self.state = .IN_PROGRESS
+        self.progress = 0
+        self.state = .PAUSED
+
+        self.manager.session.configuration.timeoutIntervalForRequest = 15
 
         initUrl()
     }
@@ -57,9 +60,6 @@ class DownloadItem {
     func start(headers: HTTPHeaders) {
         state = .IN_PROGRESS
 
-        let manager = Alamofire.SessionManager.default
-        manager.session.configuration.timeoutIntervalForRequest = 10
-
         request = manager.request(url!, headers: headers)
         .downloadProgress(queue: concurrentDownloadQueue) {
             progress in
@@ -67,32 +67,37 @@ class DownloadItem {
 
             self.progress = progress.fractionCompleted
 
+            // saves total size of downloaded item - for resuming
             if self.totalDataSize == 0 {
                 self.totalDataSize = progress.totalUnitCount
             }
 
+            // if in this block - downloading is in progress
+            // so clears retry counter
             self.retryCounter = 0
         }
         .responseData {
             response in
 
+            //adds now downloaded part to previous
+            //if first - previous = 0
+            self.dataCompleted.append(response.data!)
+
             switch response.result {
             case .success:
                 self.state = .FINISHED
-                self.dataCompleted.append(response.data!)
-
                 print("SUCCESS total size = \(self.dataCompleted.count)")
+
                 FileUtils().writeDataToFile(data: self.dataCompleted)
 
             case .failure(let error):
                 self.state = .RETRY
-                self.dataCompleted.append(response.data!)
+                print("Error: \(error)")
 
+                //retrying download after SECONDS_BETWEEN_RETRY
                 DispatchQueue.main.asyncAfter(deadline: .now() + self.SECONDS_BETWEEN_RETRY) {
                     self.retry()
                 }
-
-                print("Code: \(response.response?.statusCode)")
             }
         }
     }
@@ -118,24 +123,28 @@ class DownloadItem {
 
             retryCounter += 1
 
+            //creating a retry header
             let bytesRange = "bytes=\(dataCompleted.count)-\(totalDataSize)"
             let headers: HTTPHeaders = ["Range": bytesRange]
             print(bytesRange)
 
             start(headers: headers)
-
         } else {
             state = .FAILED
         }
     }
 
     func initUrl() {
+        //gets URL from identifier and starts downloading
         XCDYouTubeClient.default().getVideoWithIdentifier(identifier) {
             (video: XCDYouTubeVideo?, error: Error?) in
             if let video = video {
                 self.url = (video.streamURLs.first?.value)!
 
                 self.start()
+            } else {
+                self.state = .FAILED
+                print("wrong identifier")
             }
         }
     }
