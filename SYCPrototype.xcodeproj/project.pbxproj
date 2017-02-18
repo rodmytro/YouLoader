@@ -14,6 +14,7 @@
 		495DC8901E53ADFC0039EDD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495DC88F1E53ADFC0039EDD4 /* Assets.xcassets */; };
 		495DC8931E53ADFC0039EDD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495DC8911E53ADFC0039EDD4 /* Main.storyboard */; };
 		495DC89E1E53ADFC0039EDD4 /* SYCPrototypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DC89D1E53ADFC0039EDD4 /* SYCPrototypeTests.swift */; };
+		49A6A5761E58AE20001DC6DD /* YouTubeDownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6A5751E58AE20001DC6DD /* YouTubeDownloadController.swift */; };
 		7296E20921370A286C304D7D /* Pods_SYCPrototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8E50501A782A7222ED694F /* Pods_SYCPrototype.framework */; };
 		E2F7037257E7AEDF7F58ACBB /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F706C688BAD0D7A2AE0AC6 /* CollectionViewItem.swift */; };
 		E2F7097DEF3F2466B29E9244 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F709BBE60F5C64595C4CD9 /* FileUtils.swift */; };
@@ -44,6 +45,7 @@
 		495DC89D1E53ADFC0039EDD4 /* SYCPrototypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYCPrototypeTests.swift; sourceTree = "<group>"; };
 		495DC89F1E53ADFC0039EDD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		495DC8A81E53AF030039EDD4 /* SYCPrototype-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SYCPrototype-Bridging-Header.h"; sourceTree = "<group>"; };
+		49A6A5751E58AE20001DC6DD /* YouTubeDownloadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeDownloadController.swift; sourceTree = "<group>"; };
 		56B7C0947BF6A5F537EF8B12 /* Pods-SYCPrototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYCPrototype.release.xcconfig"; path = "Pods/Target Support Files/Pods-SYCPrototype/Pods-SYCPrototype.release.xcconfig"; sourceTree = "<group>"; };
 		5DFAB0923EEB5C7467F91461 /* Pods-SYCPrototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYCPrototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SYCPrototype/Pods-SYCPrototype.debug.xcconfig"; sourceTree = "<group>"; };
 		8C8E50501A782A7222ED694F /* Pods_SYCPrototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYCPrototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +106,7 @@
 			children = (
 				493C41981E560153001D6CED /* models */,
 				4911E1061E54F235004EBC1D /* DownloadController.swift */,
+				49A6A5751E58AE20001DC6DD /* YouTubeDownloadController.swift */,
 			);
 			name = downloader;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				4911E1071E54F235004EBC1D /* DownloadController.swift in Sources */,
 				E2F70BB5871086C7416F502E /* ViewController.swift in Sources */,
 				E2F7037257E7AEDF7F58ACBB /* CollectionViewItem.swift in Sources */,
+				49A6A5761E58AE20001DC6DD /* YouTubeDownloadController.swift in Sources */,
 				E2F70C95538309ED53FFB407 /* AppDelegate.swift in Sources */,
 				E2F7097DEF3F2466B29E9244 /* FileUtils.swift in Sources */,
 			);

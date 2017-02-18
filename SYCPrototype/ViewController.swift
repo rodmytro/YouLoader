@@ -10,7 +10,7 @@ class ViewController: NSViewController, NSWindowDelegate {
     @IBOutlet weak var collectionView: NSCollectionView!
     @IBOutlet weak var urlTextField: NSTextField!
 
-    let downloadController = DownloadController()
+    let downloadController = YouTubeDownloadController()
     var updateTimer: Timer?
 
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class ViewController: NSViewController, NSWindowDelegate {
     @IBAction func onDownloadClick(_ sender: AnyObject) {
         if !urlTextField.stringValue.isEmpty {
             //starts a new download task with identifier
-            downloadController.startDownloading(identifier: urlTextField.stringValue)
+            downloadController.startDownloading(url: urlTextField.stringValue)
             updateCollectionView()
         }
     }

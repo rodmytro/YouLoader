@@ -3,7 +3,6 @@
 //  SYCPrototype
 
 import Foundation
-import Alamofire
 
 class DownloadController: Sequence {
 
@@ -31,9 +30,8 @@ class DownloadController: Sequence {
         return downloads.makeIterator()
     }
 
-    func startDownloading(identifier: String) {
-        let downloadItem = DownloadItem(identifier: identifier);
-        self.downloads.append(downloadItem)
+    func addItem(downloadItem: DownloadItem) {
+        downloads.append(downloadItem)
     }
 
 }

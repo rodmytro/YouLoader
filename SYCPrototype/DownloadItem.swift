@@ -5,7 +5,6 @@
 
 import Alamofire
 import Foundation
-import XCDYouTubeKit
 
 class DownloadItem {
     let MAX_RETRY_ITERATIONS = 5
@@ -27,7 +26,6 @@ class DownloadItem {
         case FINISHED
     }
 
-    var identifier: String
     var url: URL?
     var state: State
     var progress: Double
@@ -39,8 +37,8 @@ class DownloadItem {
 
     var request: Alamofire.Request?
 
-    init(identifier: String) {
-        self.identifier = identifier
+    init(url: URL) {
+        self.url = url
         self.dataCompleted = Data()
         self.retryCounter = 0
         self.totalDataSize = 0
@@ -49,8 +47,6 @@ class DownloadItem {
         self.state = .PAUSED
 
         self.manager.session.configuration.timeoutIntervalForRequest = 15
-
-        initUrl()
     }
 
     func start() {
@@ -131,21 +127,6 @@ class DownloadItem {
             start(headers: headers)
         } else {
             state = .FAILED
-        }
-    }
-
-    func initUrl() {
-        //gets URL from identifier and starts downloading
-        XCDYouTubeClient.default().getVideoWithIdentifier(identifier) {
-            (video: XCDYouTubeVideo?, error: Error?) in
-            if let video = video {
-                self.url = (video.streamURLs.first?.value)!
-
-                self.start()
-            } else {
-                self.state = .FAILED
-                print("wrong identifier")
-            }
         }
     }
 

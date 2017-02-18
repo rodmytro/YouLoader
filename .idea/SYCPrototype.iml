@@ -9,12 +9,13 @@
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/FileUtils.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/DownloadController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/Double.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/ViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/YouTubeDownloadController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/CollectionViewItem.xib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/DownloadItem.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/SYCPrototype-Bridging-Header.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/CollectionViewItem.xib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/app/AppDelegate.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/ViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/Base.lproj/Main.storyboard" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SYCPrototype/CollectionViewItem.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Timeline.swift" isTestSource="false" />

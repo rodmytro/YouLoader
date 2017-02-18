@@ -165,11 +165,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SYCPrototype/DownloadItem.swift"
-            timestampString = "509121186.021572"
+            timestampString = "509129208.455571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "start(headers:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -181,11 +181,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SYCPrototype/DownloadItem.swift"
-            timestampString = "509121186.021572"
+            timestampString = "509129208.455571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "pause()"
             landmarkType = "7">
          </BreakpointContent>
@@ -197,11 +197,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SYCPrototype/DownloadController.swift"
-            timestampString = "509119185.381026"
+            timestampString = "509129208.455571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "10"
-            endingLineNumber = "10"
+            startingLineNumber = "9"
+            endingLineNumber = "9"
             landmarkName = "DownloadController"
             landmarkType = "3">
          </BreakpointContent>
@@ -261,11 +261,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SYCPrototype/DownloadItem.swift"
-            timestampString = "509121186.021572"
+            timestampString = "509129208.455571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "start(headers:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -277,43 +277,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SYCPrototype/DownloadItem.swift"
-            timestampString = "509121186.021572"
+            timestampString = "509129208.455571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "init(identifier:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SYCPrototype/DownloadItem.swift"
-            timestampString = "509121186.021572"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "init(identifier:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SYCPrototype/DownloadItem.swift"
-            timestampString = "509121286.624792"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "retry()"
             landmarkType = "7">
          </BreakpointContent>
