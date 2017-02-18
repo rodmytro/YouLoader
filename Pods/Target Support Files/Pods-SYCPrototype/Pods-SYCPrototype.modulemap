@@ -1,0 +1,6 @@
+framework module Pods_SYCPrototype {
+  umbrella header "Pods-SYCPrototype-umbrella.h"
+
+  export *
+  module * { export * }
+}

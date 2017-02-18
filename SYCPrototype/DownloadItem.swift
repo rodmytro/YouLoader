@@ -7,6 +7,12 @@ import Alamofire
 import Foundation
 
 class DownloadItem {
+    let concurrentDownloadQueue =
+    DispatchQueue(
+        label: "concurrentDownloadQueue",
+        qos: .utility,
+        attributes: .concurrent)
+    
     enum State {
         case IN_PROGRESS
         case PAUSED
@@ -30,14 +36,15 @@ class DownloadItem {
     }
     
     func start() {
-        let utilityQueue = DispatchQueue.global(qos: .utility)
+//        let utilityQueue = DispatchQueue.global(qos: .utility)
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 600
         
         request = manager.request(url)
-            .downloadProgress(queue: utilityQueue) {
+            .downloadProgress(queue: concurrentDownloadQueue) {
                 progress in
                 self.progress = progress.fractionCompleted
+                print("bytes \(progress.completedUnitCount)")
             }
             .responseData {
                 response in
@@ -45,7 +52,7 @@ class DownloadItem {
                 switch response.result {
                 case .success:
                     self.state = .FINISHED
-                    print("SUCCESS")
+                    print("SUCCESS size = \([UInt8] (response.data!))")
                 case .failure(let error):
                     self.state = .FAILED
                     print("Code: \(response.response?.statusCode)")

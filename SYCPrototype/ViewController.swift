@@ -83,23 +83,17 @@ extension ViewController: NSCollectionViewDataSource {
     // 3
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
 
-        // 4
         let item = collectionView.makeItem(withIdentifier: "CollectionViewItem", for: indexPath as IndexPath)
-
-        print("item 1 = \(item.className)")
 
         guard let collectionViewItem = item as? CollectionViewItem else {
             return item
         }
-
-        // 5
 
         let downloadTitle = downloadController[indexPath.item]
         collectionViewItem.item = downloadTitle
         collectionViewItem.itemActionButton.tag = indexPath.item
         collectionViewItem.itemActionButton.target = self
         collectionViewItem.itemActionButton.action = #selector(self.onClick(sender:))
-        print("item 2 = \(downloadTitle)")
 
         return item
     }
@@ -113,44 +107,6 @@ extension ViewController: NSCollectionViewDataSource {
         } else {
             downloadController[sender.tag].resume()
         }
-    }
-
-}
-
-
-extension ViewController: NSCollectionViewDelegate {
-    // 1
-    func collectionView(collectionView: NSCollectionView, didSelectItemsAtIndexPaths indexPaths: Set<NSIndexPath>) {
-        
-        
-        print("downloading")
-        // 2
-        guard let indexPath = indexPaths.first else {
-            return
-        }
-        // 3
-        guard let item = collectionView.item(at: indexPath as IndexPath) else {
-            return
-        }
-
-        //OnCLick
-        print("downloading from \(item)")
-    }
-
-    func collectionView(_ collectionView: NSCollectionView,
-                        didSelectItemsAt indexPaths: Set<IndexPath>) {
-        
-        print("downloading")
-        
-        guard let indexPath = indexPaths.first else {
-            return
-        }
-        guard let item = collectionView.item(at: indexPath as IndexPath) else {
-            return
-        }
-
-        //OnCLick
-        print("downloading from \(item)")
     }
 
 }
